@@ -1,0 +1,39 @@
+#verificar se o número inserido é valido p/ um tamanho de lista
+while True:
+    try:
+        tam=int(input("Quantos valores terão na lista?:  "))
+        if tam<0:
+            print("O número deve ser inteiro +. Digite novamente: ")
+            continue
+        break
+    except ValueError:
+        print("Digite um caractere válido: números inteiros +:  ")
+        continue
+
+
+#criando a lista e preenchendo com os inputs do usuário
+intervalo=[]
+for i in range(1,tam+1):
+       
+        #verificando se o número inserido é valido (inteiro)
+        while True:
+            try:
+                num=int(input("Digite um número:  "))
+                if num in intervalo:
+                    print("Número repetido! Digite outro:  ")
+                    continue
+                else:
+                    intervalo.append(num)
+                break
+             
+            except ValueError:
+                print("Digite caracteres válidos (inteiros + ou -)")
+                continue
+
+
+def selec_impares(intervalo):
+    return[num for num in intervalo if num%2!=0]
+
+
+impares=selec_impares(intervalo)
+print("Os números ímpares da sua lista original são: ",impares)
